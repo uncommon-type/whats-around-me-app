@@ -62,7 +62,7 @@ textarea {
 }
 
 /*--------------------------------------------------------------------------*\
-   
+           Global
 \*--------------------------------------------------------------------------*/
 
 body {
@@ -105,12 +105,16 @@ main > h1 + * {
   padding: 0 0.5rem;
 }
 
-.map {
-  height: 100%;
-}
-
 .search__error h2 {
   text-align: center;
+}
+
+/*--------------------------------------------------------------------------*\
+           Map
+\*--------------------------------------------------------------------------*/
+
+.map {
+  height: 100%;
 }
 
 .map-icon {
@@ -160,6 +164,14 @@ main > h1 + * {
   100% {
     transform: translateY(0);
   }
+}
+
+.user-location-icon {
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 25px;
+  background-color: rgba(248, 59, 248, 0.5);
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------------------*\
@@ -358,4 +370,27 @@ button:hover:active {
 button:hover:enabled {
   color: #18191f;
   background: rgba(255, 189, 18, 0.4);
+}
+
+.share-btn,
+.stop-btn {
+  margin: 0.15rem 0.5rem;
+  padding: 0.3rem 0.4rem 0.2rem;
+  border: 2px solid #474a57;
+  border-radius: 8px;
+  background: #eeeff4;
+  color: #1c2334;
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.share-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+nav {
+  padding: 50px;
 }
