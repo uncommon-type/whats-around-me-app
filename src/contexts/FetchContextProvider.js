@@ -10,6 +10,9 @@ const FetchContextProvider = ({ children }) => {
     lat: 48.8566,
     lng: 2.3522,
   });
+  const [isWatchingLocation, setIsWatchingLocation] = useState(false);
+  const [watcherId, setWatcherId] = useState(null);
+  const [userPosition, setUserPosition] = useState({ lat: null, lng: null });
   const { lat, lng } = centerCoords;
   const { status, data, error } = useFetch(lat, lng);
   const isError = status === 'error';
@@ -19,7 +22,19 @@ const FetchContextProvider = ({ children }) => {
   }
 
   return data ? (
-    <FetchContext.Provider value={{ data, setCenterCoords, centerCoords }}>
+    <FetchContext.Provider
+      value={{
+        data,
+        setCenterCoords,
+        centerCoords,
+        isWatchingLocation,
+        setIsWatchingLocation,
+        watcherId,
+        setWatcherId,
+        userPosition,
+        setUserPosition,
+      }}
+    >
       {children}
     </FetchContext.Provider>
   ) : null;

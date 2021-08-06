@@ -14,23 +14,27 @@ import UserMarker from './UserMarker';
 const Map = () => {
   const [loaded, setLoaded] = useState(false);
   const [locationDetails, setLocationDetails] = useState(null);
-  const [userPosition, setUserPosition] = useState({ lat: null, lng: null });
-  const [watcherId, setWatcherId] = useState(null);
-  const [isWatchingLocation, setIsWatchingLocation] = useState(false);
-  //I had to introduce a new piece of state to track current mapCenter
-  // Without it, on the initial page load, the map default view is blank
-  const [currentMapCenter, setCurrentMapCenter] = useState({
-    lat: 48.8566,
-    lng: 2.3522,
-  });
-  const { data, centerCoords, setCenterCoords } = useContext(FetchContext);
+  const [geolocationError, setGeolocationError] = useState(null);
+  const {
+    data,
+    centerCoords,
+    setCenterCoords,
+    isWatchingLocation,
+    setIsWatchingLocation,
+    watcherId,
+    setWatcherId,
+    userPosition,
+    setUserPosition,
+  } = useContext(FetchContext);
+
   const debouncedUserPosition = useDebounce(userPosition, 1000);
 
   useEffect(() => {
     if (debouncedUserPosition) {
       setCenterCoords(debouncedUserPosition);
     }
-  }, [debouncedUserPosition, setCenterCoords]);
+    setCenterCoords(centerCoords);
+  }, [debouncedUserPosition, setCenterCoords, centerCoords]);
 
   const { zoom } = data;
 
@@ -56,12 +60,14 @@ const Map = () => {
   const onSuccess = ({ coords }) => {
     const { latitude, longitude } = coords;
     setUserPosition({ lat: latitude, lng: longitude });
-    setCurrentMapCenter({ lat: latitude, lng: longitude });
+    setCenterCoords({ lat: latitude, lng: longitude });
   };
 
   const onError = (error) => {
     //TODO:Handle permission-denied/position-unavailale
     console.log(error);
+    setGeolocationError(error.code);
+    setIsWatchingLocation(false);
   };
 
   const handleSharing = () => {
@@ -94,11 +100,11 @@ const Map = () => {
           Share Location
         </button>
 
-        {isWatchingLocation ? (
+        {geolocationError === null && isWatchingLocation && (
           <button onClick={handleStopSharing} className="stop-btn">
             Stop Sharing Location
           </button>
-        ) : null}
+        )}
       </header>
       <div className="section__content">
         <div className="map">
@@ -106,7 +112,7 @@ const Map = () => {
             bootstrapURLKeys={{
               key: 'AIzaSyCbfV0IAdkkGv-9mmuAkUJNzCPPfGRO6v0',
             }}
-            center={currentMapCenter}
+            center={centerCoords}
             defaultZoom={zoom}
             yesIWantToUseGoogleMapApiInternals={true}
             onGoogleApiLoaded={handleApiLoaded}
