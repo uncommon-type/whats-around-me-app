@@ -253,3 +253,109 @@ a.active {
 .list__item .text :nth-last-child(2) {
   margin-bottom: 0.75rem;
 }
+
+/*--------------------------------------------------------------------------*\
+   DIALOG
+\*--------------------------------------------------------------------------*/
+
+[data-reach-dialog-overlay] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+[role='dialog'] {
+  padding: 2.5rem;
+  border: 2px solid;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+[data-reach-dialog-content] {
+  min-width: 100vw;
+  margin: 0 auto;
+  background: white;
+  outline: none;
+  z-index: 1;
+  position: relative;
+}
+
+@media screen and (min-width: 43rem) {
+  [data-reach-dialog-content] {
+    min-width: 45vw;
+    margin: 10vh auto;
+  }
+}
+
+.dialog__button {
+  background: none;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  line-height: 0;
+}
+
+.dialog__button svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+}
+
+.dialog__image {
+  --height: 9;
+  --width: 16;
+  padding-bottom: calc(var(--height) / var(--width) * 100%);
+  position: relative;
+}
+
+.dialog__image > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.dialog__body__link {
+  color: #1c2334;
+  text-decoration: underline;
+}
+
+.dialog__body__link:hover {
+  font-weight: 700;
+}
+
+/*--------------------------------------------------------------------------*\
+  BUTTONS
+\*--------------------------------------------------------------------------*/
+
+button:focus {
+  outline-color: rgba(255, 189, 18, 0.8);
+}
+
+button:hover:active {
+  color: #18191f;
+  background: rgba(255, 189, 18, 0.4);
+}
+
+button:hover:enabled {
+  color: #18191f;
+  background: rgba(255, 189, 18, 0.4);
+}
