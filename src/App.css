@@ -390,7 +390,3 @@ button:hover:enabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-
-nav {
-  padding: 50px;
-}
