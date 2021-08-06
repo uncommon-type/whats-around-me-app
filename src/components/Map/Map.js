@@ -17,6 +17,8 @@ const Map = () => {
   const [userPosition, setUserPosition] = useState({ lat: null, lng: null });
   const [watcherId, setWatcherId] = useState(null);
   const [isWatchingLocation, setIsWatchingLocation] = useState(false);
+  //I had to introduce a new piece of state to track current mapCenter
+  // Without it, on the initial page load, the map default view is blank
   const [currentMapCenter, setCurrentMapCenter] = useState({
     lat: 48.8566,
     lng: 2.3522,
