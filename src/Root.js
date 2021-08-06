@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import FetchContextProvider from './contexts/FetchContextProvider';
 
-import Map from './components/Map';
+import Map from './components/Map/Map';
 import CardList from './components/CardList';
 import Settings from './components/Settings';
 import Help from './components/Help';
