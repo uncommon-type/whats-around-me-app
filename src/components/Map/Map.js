@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 
 import GoogleMapReact from 'google-map-react';
 import { Dialog } from '@reach/dialog';
@@ -28,6 +28,13 @@ const Map = () => {
     setLocationDetails(null);
   };
 
+  const handleDrag = useCallback(
+    (map) => {
+      setCenterCoords({ lat: map.center.lat(), lng: map.center.lng() });
+    },
+    [setCenterCoords],
+  );
+
   return (
     <>
       <h1>Lorem Ipsum</h1>
@@ -40,6 +47,7 @@ const Map = () => {
             center={centerCoords}
             defaultZoom={zoom}
             onGoogleApiLoaded={handleApiLoaded}
+            onDragEnd={(map) => handleDrag(map)}
           >
             {data?.query?.pages?.length > 0 && loaded
               ? data.query.pages.map((location) => {
