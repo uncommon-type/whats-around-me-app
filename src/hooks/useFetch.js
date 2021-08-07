@@ -20,7 +20,10 @@ const useFetch = (lat, lng) => {
         }
 
         const data = await res.json();
-        setData({ ...data, zoom: 16 });
+        setData({
+          ...data,
+          zoom: 16,
+        });
         setStatus('success');
       } catch (error) {
         console.error(error);
