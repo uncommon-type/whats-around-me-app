@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CloseIcon from './CloseIcon';
+import { XCircleIcon } from '@heroicons/react/solid';
 
 const DialogBody = ({ locationDetails, onClick }) => (
   <>
@@ -9,7 +9,7 @@ const DialogBody = ({ locationDetails, onClick }) => (
       aria-label="close dialog"
       onClick={onClick}
     >
-      <CloseIcon />
+      <XCircleIcon />
     </button>
 
     <div className="dialog__image">

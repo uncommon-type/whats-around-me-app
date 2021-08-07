@@ -8,10 +8,10 @@ const Card = ({ location }) => {
       <div className="image">
         <img
           src={
-            location?.thumbnail?.source ||
+            location.thumbnail?.source ||
             `${process.env.PUBLIC_URL}/placeholder.png`
           }
-          alt={location?.thumbnail?.source ? location.title : ''}
+          alt={location.thumbnail?.source ? location.title : ''}
         />
       </div>
       <div className="text">

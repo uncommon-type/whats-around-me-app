@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@heroicons/react": "^1.0.3",
     "@reach/dialog": "^0.16.0",
     "google-map-react": "^2.1.10",
     "node-fetch": "^2.6.1",

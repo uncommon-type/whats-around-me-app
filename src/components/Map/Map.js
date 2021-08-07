@@ -127,10 +127,10 @@ const Map = () => {
                       lat={coordinates[0].lat}
                       lng={coordinates[0].lon}
                       imageUrl={
-                        location?.thumbnail?.source ||
+                        location.thumbnail?.source ||
                         `${process.env.PUBLIC_URL}/placeholder.png`
                       }
-                      alt={location?.thumbnail?.source ? location.title : ''}
+                      alt={location.thumbnail?.source ? location.title : ''}
                       onClick={() => {
                         handlePinClick(location);
                       }}

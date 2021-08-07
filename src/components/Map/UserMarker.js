@@ -1,10 +1,10 @@
 import React from 'react';
 
-import UserIcon from './UserIcon';
+import { LocationMarkerIcon } from '@heroicons/react/solid';
 
 const UserMarker = () => (
   <div className="user-icon">
-    <UserIcon />
+    <LocationMarkerIcon className="user-location-icon" />
   </div>
 );
 
