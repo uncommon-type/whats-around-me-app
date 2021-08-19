@@ -1,5 +1,7 @@
 import React from 'react';
 
-const Help = () => <h1>Help</h1>;
+import Header from './Header';
+
+const Help = () => <Header title="Help" />;
 
 export default Help;

@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------------------*\
-    RESET
+                            RESET
 \*--------------------------------------------------------------------------*/
 
 *,
@@ -30,8 +30,8 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-a {
-  text-decoration: none;
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
 img,
@@ -51,6 +51,7 @@ textarea {
   html:focus-within {
     scroll-behavior: auto;
   }
+
   *,
   ::after,
   ::before {
@@ -62,8 +63,14 @@ textarea {
 }
 
 /*--------------------------------------------------------------------------*\
-           Global
+                            GLOBAL
 \*--------------------------------------------------------------------------*/
+
+html,
+body,
+#root {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -73,20 +80,18 @@ body {
 }
 
 .app {
+  height: 100vh;
   display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: 100vh;
-  max-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
   max-width: 75rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding: 1rem;
+  overflow: hidden;
 }
 
-.app__content {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  overflow: hidden;
+header {
+  padding: 0.4rem 0 0.8rem 0;
 }
 
 h1 {
@@ -96,13 +101,23 @@ h1 {
   text-align: center;
 }
 
-main > h1 + * {
+main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+main + * {
   margin-top: 1rem;
 }
 
-.section__content {
+.gap-top-700 {
+  margin-top: 1rem;
+}
+
+.app-content {
   overflow-y: auto;
-  padding: 0 0.5rem;
+  height: 100%;
 }
 
 .search__error h2 {
@@ -110,9 +125,150 @@ main > h1 + * {
 }
 
 /*--------------------------------------------------------------------------*\
-           Map
+                            SEARCHBAR
 \*--------------------------------------------------------------------------*/
 
+.search-controls {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.25rem;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.search-controls__inner {
+  position: relative;
+}
+
+.search-controls input {
+  padding: 0.25rem 1rem;
+  border: 2px solid #263147;
+  border-radius: 0.375rem;
+  outline-color: #404040;
+  color: #002f3c;
+  background: none;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.search-controls input:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 2pt #f586ae;
+}
+
+.search-controls input::placeholder {
+  color: #18191f;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.search-controls input:-ms-input-placeholder {
+  color: #18191f;
+  opacity: 0.5;
+  font-family: code-saver, monospace;
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.5;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.search-controls__error h2 {
+  color: #002f3c;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.search-controls button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #002f3c;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.icon-search {
+  display: inline-block;
+  vertical-align: text-top;
+  margin-top: 0.1em;
+  height: 1em;
+  width: 1em;
+  cursor: pointer;
+  fill: currentColor;
+}
+
+/*--------------------------------------------------------------------------*\
+                            NAV
+\*--------------------------------------------------------------------------*/
+
+footer {
+  margin-top: auto;
+  text-align: center;
+}
+nav {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin: 0.15rem 0.5rem;
+  max-width: 65ch;
+}
+
+.nav a {
+  color: #1c2334;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: dotted 2px blue;
+}
+
+/*--------------------------------------------------------------------------*\
+                            MAP
+\*--------------------------------------------------------------------------*/
 .map {
   height: 100%;
 }
@@ -166,7 +322,7 @@ main > h1 + * {
   }
 }
 
-.user-location-icon {
+.user-icon {
   width: 3.75em;
   height: 3.75em;
   border-radius: 50%;
@@ -176,50 +332,7 @@ main > h1 + * {
 }
 
 /*--------------------------------------------------------------------------*\
-      Navigation
-\*--------------------------------------------------------------------------*/
-
-footer {
-  margin-top: auto;
-  text-align: center;
-}
-
-nav {
-  max-width: 50rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav li {
-  margin: 0.15rem 0.5rem;
-  max-width: 65ch;
-}
-
-.nav a {
-  color: #1c2334;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-a.active {
-  text-decoration: underline;
-}
-
-/*--------------------------------------------------------------------------*\
-   CARD LIST
+                            CARD LIST
 \*--------------------------------------------------------------------------*/
 
 .list {
@@ -227,12 +340,14 @@ a.active {
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 .list__item {
   display: flex;
   flex-direction: column;
-  flex: 1 1 40ch;
+  flex: 1 1 25ch;
   border: 1px solid;
   border-radius: 0.25rem;
   overflow: hidden;
@@ -268,7 +383,7 @@ a.active {
 }
 
 /*--------------------------------------------------------------------------*\
-   DIALOG
+                            DIALOG
 \*--------------------------------------------------------------------------*/
 
 [data-reach-dialog-overlay] {
@@ -356,7 +471,7 @@ a.active {
 }
 
 /*--------------------------------------------------------------------------*\
-  BUTTONS
+                            BUTTONS
 \*--------------------------------------------------------------------------*/
 
 button:focus {
@@ -365,17 +480,15 @@ button:focus {
 
 button:hover:active {
   color: #18191f;
-  background: rgba(255, 189, 18, 0.4);
 }
 
 button:hover:enabled {
   color: #18191f;
-  background: rgba(255, 189, 18, 0.4);
 }
 
 .share-btn,
 .stop-btn {
-  margin: 0.15rem 0.5rem;
+  margin: 0;
   padding: 0.3rem 0.4rem 0.2rem;
   border: 2px solid #474a57;
   border-radius: 8px;
@@ -391,3 +504,98 @@ button:hover:enabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
+
+.stop-btn {
+  margin: 0.2rem 0 0 0.5rem;
+}
+
+/*--------------------------------------------------------------------------*\
+                           Settings
+\*--------------------------------------------------------------------------*/
+
+.settings__title {
+  text-align: center;
+}
+
+.settings__title + * {
+  margin-top: 1rem;
+}
+
+.settings__explanation {
+  text-align: center;
+}
+
+.settings__options {
+  text-align: center;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings__title,
+.settings__options {
+  text-rendering: optimizeSpeed;
+  color: #1c2334;
+  line-height: 1.5;
+  font-size: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+  font-family: atkinson_hyperlegible, Arial, sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: var(--flow-space, clamp(1.09rem, 1rem + 0.47vw, 1.33rem));
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.slider + * {
+  margin-top: 5rem;
+}
+
+.thumb {
+  box-sizing: border-box;
+  top: 1px;
+  width: 50px;
+  height: 48px;
+  border: 5px solid gray;
+  background-color: grey;
+
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+  line-height: 38px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.track {
+  position: relative;
+  top: 20px;
+  height: 5px;
+  background: #ddd;
+}
+
+.track-1 {
+  background: #1c2334;
+  background-color: gray;
+}
+
+/*settings*/
