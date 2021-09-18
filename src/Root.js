@@ -5,8 +5,8 @@ import FetchContextProvider from './contexts/FetchContextProvider';
 import GoogleContextProvider from './contexts/GoogleContextProvider';
 import ShareLocationContextProvider from './contexts/ShareLocationContextProvider';
 
-import Nav from './components/Nav';
-import Settings from './components/Settings';
+import Settings from './SettingsView/components/Settings';
+import Footer from './common/components/Footer';
 import SearchRoutes from './SearchRoutes';
 
 import './App.css';
@@ -18,15 +18,17 @@ const Root = () => {
         <ShareLocationContextProvider>
           <Router>
             <div className="app">
-              <Switch>
-                <Route path="/settings">
-                  <Settings />
-                </Route>
-                <Route>
-                  <SearchRoutes />
-                </Route>
-              </Switch>
-              <Nav />
+              <main>
+                <div className="app__inner">
+                  <Switch>
+                    <Route path="/settings">
+                      <Settings />
+                      <Footer />
+                    </Route>
+                    <Route component={SearchRoutes} />
+                  </Switch>
+                </div>
+              </main>
             </div>
           </Router>
         </ShareLocationContextProvider>
