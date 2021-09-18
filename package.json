@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.2",
     "@heroicons/react": "^1.0.3",
     "@reach/dialog": "^0.16.0",
     "@reach/slider": "^0.16.0",

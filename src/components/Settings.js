@@ -4,9 +4,9 @@ import ReactSlider from 'react-slider';
 
 import { FetchContext } from '../contexts/FetchContextProvider';
 
-import Header from './Header';
+import Header from './Header/Header';
 
-const Settings = ({ onViewChange }) => {
+const Settings = () => {
   const { apiTimeDelay, setApiTimeDelay } = useContext(FetchContext);
 
   const handleChange = (value) => {
@@ -17,11 +17,12 @@ const Settings = ({ onViewChange }) => {
     <>
       <Header title="Settings" />
       <main>
-        <section className="app-content">
-          <div className="settings">
+        <div className="app-content">
+          <section className="settings">
             <p className="settings__title">
               Adjust how often the app refreshes with new locations
             </p>
+
             <div className="slider-container">
               <ReactSlider
                 className="slider"
@@ -42,8 +43,8 @@ const Settings = ({ onViewChange }) => {
               <li className="settings__options">Bicycle: 15 seconds</li>
               <li className="settings__options">Walking: 30 seconds</li>
             </ul>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
     </>
   );
