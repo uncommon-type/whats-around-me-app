@@ -35,24 +35,22 @@ const useFetch = ({ lat, lng, panning }, timeDelay) => {
 
     if (panning) {
       getWikiData(lat, lng);
-      console.log('triggering 1');
       return;
     }
     const now = Date.now();
     if (now >= lastExecuted.current + timeDelay) {
       lastExecuted.current = now;
       getWikiData(lat, lng);
-      console.log('triggering 2');
     } else {
       const timerId = setTimeout(() => {
         lastExecuted.current = now;
         getWikiData(lat, lng);
-        console.log('triggering 3');
       }, timeDelay - (now - lastExecuted.current));
 
       return () => clearTimeout(timerId);
     }
-  }, [lat, lng, timeDelay, panning]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lat, lng, panning]);
 
   return { data, status, error };
 };
