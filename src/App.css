@@ -391,6 +391,12 @@ button:hover:enabled {
   color: #18191f;
 }
 
+.location-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .share-btn,
 .stop-btn {
   padding: 0.38rem 1rem;
