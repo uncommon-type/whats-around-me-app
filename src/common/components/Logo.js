@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Logo = () => (
-  <div className="app-logo">
+  <div className="logo">
     <h1>
       <span>What's Around Me</span>
     </h1>
