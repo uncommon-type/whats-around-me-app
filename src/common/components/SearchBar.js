@@ -1,19 +1,19 @@
 import React, { useState, useContext } from 'react';
 
 import { SearchIcon } from '@heroicons/react/solid';
-import { Loader } from '@googlemaps/js-api-loader';
-import GeoLocationButton from './GeoLocationButton';
-import NotFound from './NotFound';
 
 import { FetchContext } from '../../contexts/FetchContextProvider';
 import { GoogleContext } from '../../contexts/GoogleContextProvider';
 import { ShareLocationContext } from '../../contexts/ShareLocationContextProvider';
 
+import GeoLocationButton from './GeoLocationButton';
+import NotFound from './NotFound';
+
 const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [isError, setIsError] = useState(false);
   const { setCenterCoords } = useContext(FetchContext);
-  const { mapInstance, mapApi } = useContext(GoogleContext);
+  const { mapInstance, mapApi, ready } = useContext(GoogleContext);
 
   const {
     isWatchingLocation,
@@ -22,50 +22,28 @@ const SearchBar = () => {
     geolocationError,
   } = useContext(ShareLocationContext);
 
-  const loader = new Loader({
-    apiKey: 'AIzaSyDReDgyRM1t9H2HncIec_v_zh2DeJGggT0',
-    id: '__googleMapsScriptId',
-    libraries: ['places'],
-    version: 'weekly',
-  });
-
   const callGooglePlaces = async (query) => {
     const request = {
       query,
       fields: ['name', 'geometry'],
     };
 
-    let service;
-    if (mapApi && mapInstance) {
-      service = new mapApi.places.PlacesService(mapInstance);
-      service.findPlaceFromQuery(request, (results, status) => {
-        if (status === mapApi.places.PlacesServiceStatus.OK) {
-          setIsError(false);
-          setCenterCoords({
-            lat: results[0].geometry.location?.lat(),
-            lng: results[0].geometry.location?.lng(),
-          });
-        }
-        if (status !== mapApi.places.PlacesServiceStatus.OK) {
-          setIsError(true);
-        }
-      });
-    } else {
-      const google = await loader.load();
-      const map = new google.maps.Map(document.createElement('div'));
-      service = new google.maps.places.PlacesService(map);
-      service.findPlaceFromQuery(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          setIsError(false);
-          setCenterCoords({
-            lat: results[0].geometry.location?.lat(),
-            lng: results[0].geometry.location?.lng(),
-          });
-        }
-        if (status !== google.maps.places.PlacesServiceStatus.OK) {
-          setIsError(true);
-        }
-      });
+    if (ready) {
+      new mapApi.places.PlacesService(mapInstance).findPlaceFromQuery(
+        request,
+        (results, status) => {
+          if (status === mapApi.places.PlacesServiceStatus.OK) {
+            setIsError(false);
+            setCenterCoords({
+              lat: results[0].geometry.location?.lat(),
+              lng: results[0].geometry.location?.lng(),
+            });
+          }
+          if (status !== mapApi.places.PlacesServiceStatus.OK) {
+            setIsError(true);
+          }
+        },
+      );
     }
   };
 
