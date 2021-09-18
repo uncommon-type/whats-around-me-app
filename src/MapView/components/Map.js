@@ -18,7 +18,7 @@ const Map = () => {
   const { data, centerCoords, setCenterCoords } = useContext(FetchContext);
   const { userPosition } = useContext(ShareLocationContext);
   const { ready } = useContext(GoogleContext);
-  const { zoom } = data;
+  const [tilesLoaded, setTilesLoaded] = useState(false);
 
   const handlePinClick = (location) => {
     setLocationDetails(location);
@@ -50,11 +50,12 @@ const Map = () => {
             version: 'weekly',
           }}
           center={centerCoords}
-          defaultZoom={zoom}
+          defaultZoom={15}
           onDragEnd={(map) => handleMapDrag(map)}
+          onTilesLoaded={() => setTilesLoaded(true)}
           options={mapStyle}
         >
-          {data?.query?.pages?.length > 0
+          {tilesLoaded && data?.query?.pages?.length > 0
             ? data.query.pages.map((location) => {
                 const { coordinates, pageid: id } = location;
 

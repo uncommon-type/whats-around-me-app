@@ -21,10 +21,7 @@ const useFetch = ({ lat, lng, panning }, timeDelay) => {
         }
 
         const data = await res.json();
-        setData({
-          ...data,
-          zoom: 16,
-        });
+        setData(data);
         setStatus('success');
       } catch (error) {
         console.error(error);
