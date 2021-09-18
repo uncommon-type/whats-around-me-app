@@ -77,6 +77,7 @@ body {
   line-height: 1.5;
   color: #1c2334;
   font-family: Barlow Condensed, Helvetica, sans-serif;
+  font-family: code-saver, monospace;
 }
 
 .app {
@@ -91,7 +92,7 @@ body {
 }
 
 header {
-  padding: 0.4rem 0 0.8rem 0;
+  padding: 0.4rem 0 0.8rem 1rem;
 }
 
 h1 {
@@ -105,6 +106,8 @@ main {
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 main + * {
@@ -116,8 +119,14 @@ main + * {
 }
 
 .app-content {
+  position: relative;
   overflow-y: auto;
   height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.5rem;
 }
 
 .search__error h2 {
@@ -256,6 +265,10 @@ nav {
   line-height: 1.5;
   cursor: pointer;
   text-decoration: none;
+  color: #1c2334;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: code-saver, monospace;
 }
 
 a.active {
@@ -271,6 +284,13 @@ a:focus {
 \*--------------------------------------------------------------------------*/
 .map {
   height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #002f3c;
+  border-radius: 0.125rem;
+  background-color: white;
+  box-shadow: 10px 10px 0 -1px #fff, 10px 10px 0 #191a1b;
+  box-shadow: 5px 5px 0 #191a1b;
 }
 
 .map-icon {
@@ -278,6 +298,17 @@ a:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 24px;
+}
+
+.map-icon:after {
+  content: '▼';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 20px;
+  left: 6px;
+  color: rgba(0, 48, 61, 0.9);
 }
 
 .map-icon img {
@@ -288,7 +319,17 @@ a:focus {
   height: 24px;
   cursor: pointer;
   border: 2px solid #1c2334;
+  border: 2px solid rgba(0, 48, 61, 0.35);
   background: grey;
+  background: rgba(0, 48, 61, 0.75);
+  border: 0 solid #002f3c;
+  border-style: solid;
+  border-radius: 9999px;
+  border-width: 2px;
+  height: 2rem;
+  position: absolute;
+  top: -0.5rem;
+  width: 2rem;
 }
 
 .map-icon svg {
@@ -342,6 +383,7 @@ a:focus {
   padding: 1rem;
   padding: 0;
   margin: 0;
+  background-color: white;
 }
 
 .list__item {
@@ -380,6 +422,10 @@ a:focus {
 
 .list__item .text :nth-last-child(2) {
   margin-bottom: 0.75rem;
+}
+
+.item__title {
+  font-size: 1.2rem;
 }
 
 /*--------------------------------------------------------------------------*\
@@ -486,20 +532,6 @@ button:hover:enabled {
   color: #18191f;
 }
 
-.share-btn,
-.stop-btn {
-  margin: 0;
-  padding: 0.3rem 0.4rem 0.2rem;
-  border: 2px solid #474a57;
-  border-radius: 8px;
-  background: #eeeff4;
-  color: #1c2334;
-  font-size: 0.8rem;
-  font-weight: 900;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
 .share-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
@@ -507,6 +539,22 @@ button:hover:enabled {
 
 .stop-btn {
   margin: 0.2rem 0 0 0.5rem;
+}
+
+.share-btn,
+.stop-btn {
+  padding: 0.25rem 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  border-width: 2px;
+  box-shadow: 3px 3px 0 #002f3c;
+  font-family: code-saver, monospace;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.location-controls {
+  padding: 0.4rem 0 0.8rem 1rem;
 }
 
 /*--------------------------------------------------------------------------*\
@@ -598,4 +646,6 @@ button:hover:enabled {
   background-color: gray;
 }
 
-/*settings*/
+.gm-fullscreen-control {
+  display: none;
+}
