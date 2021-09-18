@@ -17,9 +17,6 @@ const Nav = () => (
         <li>
           <NavLink to="/settings">Settings</NavLink>
         </li>
-        <li>
-          <NavLink to="/help">Help</NavLink>
-        </li>
       </ul>
     </nav>
   </footer>
