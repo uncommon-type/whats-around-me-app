@@ -6,13 +6,13 @@ const GeoLocationButton = ({
   handleStopSharing,
   geolocationError,
 }) => (
-  <div className="location-controls gap-top-700">
+  <div className="location-controls">
     <button
       onClick={handleSharing}
       disabled={isWatchingLocation}
       className="share-btn"
     >
-      Share Location
+      Find My Location
     </button>
 
     {geolocationError === null && isWatchingLocation ? (

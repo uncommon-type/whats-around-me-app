@@ -2,15 +2,25 @@ import React, { useState, useContext } from 'react';
 
 import { SearchIcon } from '@heroicons/react/solid';
 import { Loader } from '@googlemaps/js-api-loader';
+import GeoLocationButton from './GeoLocationButton';
+import NotFound from './NotFound';
 
 import { FetchContext } from '../../contexts/FetchContextProvider';
 import { GoogleContext } from '../../contexts/GoogleContextProvider';
+import { ShareLocationContext } from '../../contexts/ShareLocationContextProvider';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [isError, setIsError] = useState(false);
   const { setCenterCoords } = useContext(FetchContext);
   const { mapInstance, mapApi } = useContext(GoogleContext);
+
+  const {
+    isWatchingLocation,
+    handleSharing,
+    handleStopSharing,
+    geolocationError,
+  } = useContext(ShareLocationContext);
 
   const loader = new Loader({
     apiKey: 'AIzaSyDReDgyRM1t9H2HncIec_v_zh2DeJGggT0',
@@ -76,31 +86,35 @@ const SearchBar = () => {
   };
 
   return (
-    <form className="search-controls" onSubmit={handleSubmit}>
-      <label htmlFor="search" className="visually-hidden">
-        Search locations
-      </label>
-      <div className="search-controls__inner">
-        <input
-          value={query}
-          onChange={handleChange}
-          type="text"
-          name="query"
-          id="query"
-          placeholder="Search"
-          aria-label="Search for location"
-        />
-        <button type="submit" aria-label="Submit search">
-          <span className="visually-hidden">Search</span>
-          <SearchIcon className="icon-search" focusable="false" />
-        </button>
-      </div>
-      {isError ? (
-        <aside className="search-controls__error">
-          <h2>Not found</h2>
-        </aside>
-      ) : null}
-    </form>
+    <div>
+      <GeoLocationButton
+        handleSharing={handleSharing}
+        isWatchingLocation={isWatchingLocation}
+        handleStopSharing={handleStopSharing}
+        geolocationError={geolocationError}
+      />
+      <form className="search-controls" onSubmit={handleSubmit}>
+        <label htmlFor="search" className="visually-hidden">
+          Search locations
+        </label>
+        <div className="search-controls__inner">
+          <input
+            value={query}
+            onChange={handleChange}
+            type="text"
+            name="query"
+            id="query"
+            placeholder="Find address or location"
+            aria-label="Search for address or location"
+          />
+          <button type="submit" aria-label="Submit search">
+            <span className="visually-hidden">Search</span>
+            <SearchIcon className="icon-search" focusable="false" />
+          </button>
+        </div>
+      </form>
+      {isError ? <NotFound /> : null}
+    </div>
   );
 };
 

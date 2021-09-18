@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 
 import useFetch from '../hooks/useFetch';
-import ErrorMessage from '../components/ErrorMessage';
+import ErrorMessage from '../common/components/ErrorMessage';
 
 export const FetchContext = createContext();
 
