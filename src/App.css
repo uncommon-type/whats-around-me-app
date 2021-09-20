@@ -121,10 +121,6 @@ main {
   box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
 }
 
-.app__inner > * + * {
-  margin-top: 1rem;
-}
-
 .content {
   overflow-y: auto;
   border: 1.5px solid #37353f;
@@ -140,29 +136,28 @@ main {
 /*--------------------------------------------------------------------------*\
                            LOGO
 \*--------------------------------------------------------------------------*/
-
 .logo {
   position: absolute;
-  z-index: 2;
-  top: 9px;
-  right: 6px;
-  width: 100px;
-  height: 100px;
-  padding: 19px;
-  border-radius: 50%;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
-  background-color: rgba(252, 139, 147, 0.3);
-  background-image: radial-gradient(circle, #fc8b93 20%, transparent 20%),
-    radial-gradient(circle, #fc8b93 20%, transparent 20%);
-  background-size: 10px 10px, 10px 10px;
-  background-position: 0 0, 5px 5px;
-  font-family: 'Pacifico', cursive;
-  line-height: 25px;
-}
-
-.logo h1 {
+  top: 0.4rem;
+  right: -0.3rem;
+  top: 0.5rem;
+  right: -0.5rem;
+  top: 0.6rem;
+  right: 0.3rem;
+  z-index: 9999;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 1px solid #002f3c;
+  background-color: #f1e3ec;
+  color: rgba(25, 26, 27, 1);
+  box-shadow: 1px 1px 0 #002f3c;
+  font-family: Space Mono, monospace;
+  font-size: 0.775rem;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-align: center;
-  font-size: 1.3rem;
+  transform: rotate(7deg);
 }
 
 /*--------------------------------------------------------------------------*\
@@ -174,6 +169,10 @@ footer {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+}
+
+.gap-top {
+  margin-top: 0.6rem;
 }
 
 footer > * {
@@ -394,7 +393,7 @@ button:hover:enabled {
 .location-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.6rem;
 }
 
 .share-btn,

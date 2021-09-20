@@ -1,11 +1,5 @@
 import React from 'react';
 
-const Logo = () => (
-  <div className="logo">
-    <h1>
-      <span>What's Around Me</span>
-    </h1>
-  </div>
-);
+const Logo = () => <h1 className="logo">What's Around Me</h1>;
 
 export default Logo;
