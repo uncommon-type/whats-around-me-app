@@ -144,7 +144,7 @@ main {
   right: -0.5rem;
   top: 0.6rem;
   right: 0.3rem;
-  z-index: 9999;
+  z-index: 1;
   padding-left: 0.3rem;
   padding-right: 0.3rem;
   border: 1px solid #002f3c;
@@ -517,6 +517,7 @@ button:hover:enabled {
 \*--------------------------------------------------------------------------*/
 .map {
   overflow-y: auto;
+  z-index: 0;
   width: 100%;
   max-width: 72rem;
   height: 100%;
