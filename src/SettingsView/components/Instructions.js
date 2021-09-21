@@ -10,7 +10,10 @@ const Instructions = ({ onViewChange, view }) => (
           number={1}
         />
         <p>Location sharing can quickly drain your battery.</p>
-        <p>To save it, ajust how often the app refreshes with new data.</p>
+        <p>
+          To save your phone's battery, ajust how often the app refreshes with
+          new data.
+        </p>
         <p>Make adustments based on how you commute.</p>
       </div>
       <div className="instruction">
