@@ -9,10 +9,13 @@ const Instructions = ({ onViewChange, view }) => (
           title={'Making your phone battery last longer'}
           number={1}
         />
-        <p>Location sharing can quickly drain your battery.</p>
         <p>
-          To save your phone's battery, ajust how often the app refreshes with
-          new data.
+          Sharing your location with the app can quickly drain your phone's
+          battery.
+        </p>
+        <p>
+          Save your battery by ajusting how often the app refreshes with new
+          data.
         </p>
         <p>Make adustments based on how you commute.</p>
       </div>
