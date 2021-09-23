@@ -11,7 +11,7 @@ const GoogleContextProvider = ({ children }) => {
   useEffect(() => {
     const loadApi = async () => {
       const loader = new Loader({
-        apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        apiKey: 'AIzaSyDReDgyRM1t9H2HncIec_v_zh2DeJGggT0',
         id: '__googleMapsScriptId',
         libraries: ['places'],
         version: 'weekly',
