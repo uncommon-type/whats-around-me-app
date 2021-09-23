@@ -44,7 +44,7 @@ const Map = () => {
       {ready ? (
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+            key: 'AIzaSyDReDgyRM1t9H2HncIec_v_zh2DeJGggT0',
             libraries: ['places'],
             id: '__googleMapsScriptId',
             version: 'weekly',
