@@ -6,14 +6,23 @@ const useFetch = ({ lat, lng, panning }, timeDelay) => {
   const [error, setError] = useState(null);
   const lastExecuted = useRef(0);
 
+  const controller = new AbortController();
+  const { signal } = controller;
+
   useEffect(() => {
     if (!lat && !lng) return;
 
     const getWikiData = async (lat, lng) => {
+      if (status === 'loading') {
+        controller.abort();
+      }
+
       setStatus('loading');
+
       try {
         const res = await fetch(
           `/.netlify/functions/search?lat=${lat}&lng=${lng}`,
+          { signal },
         );
 
         if (!res.ok) {
@@ -24,9 +33,11 @@ const useFetch = ({ lat, lng, panning }, timeDelay) => {
         setData(data);
         setStatus('success');
       } catch (error) {
-        console.error(error);
-        setError(error);
-        setStatus('error');
+        if (error.name !== 'AbortError') {
+          setError(error);
+          setStatus('error');
+          console.error(error);
+        }
       }
     };
 
