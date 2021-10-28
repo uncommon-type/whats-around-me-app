@@ -4,9 +4,9 @@ import GoogleMapReact from 'google-map-react';
 import { Dialog } from '@reach/dialog';
 import '@reach/dialog/styles.css';
 
+import { LocationContext } from '../../contexts/LocationContextProvider';
 import { FetchContext } from '../../contexts/FetchContextProvider';
 import { GoogleContext } from '../../contexts/GoogleContextProvider';
-import { ShareLocationContext } from '../../contexts/ShareLocationContextProvider';
 
 import Pin from './Pin';
 import UserMarker from './UserMarker';
@@ -15,8 +15,9 @@ import mapStyle from './mapStyle.json';
 
 const Map = () => {
   const [locationDetails, setLocationDetails] = useState(null);
-  const { data, centerCoords, setCenterCoords } = useContext(FetchContext);
-  const { userPosition } = useContext(ShareLocationContext);
+  const { data } = useContext(FetchContext);
+  const { userPosition, centerCoords, setCenterCoords } =
+    useContext(LocationContext);
   const { ready } = useContext(GoogleContext);
   const [tilesLoaded, setTilesLoaded] = useState(false);
 

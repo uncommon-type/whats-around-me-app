@@ -4,7 +4,7 @@ import { SearchIcon } from '@heroicons/react/solid';
 
 import { FetchContext } from '../../contexts/FetchContextProvider';
 import { GoogleContext } from '../../contexts/GoogleContextProvider';
-import { ShareLocationContext } from '../../contexts/ShareLocationContextProvider';
+import { LocationContext } from '../../contexts/LocationContextProvider';
 
 import GeoLocationButton from './GeoLocationButton';
 import NotFound from './NotFound';
@@ -20,7 +20,7 @@ const SearchBar = () => {
     handleSharing,
     handleStopSharing,
     geolocationError,
-  } = useContext(ShareLocationContext);
+  } = useContext(LocationContext);
 
   const callGooglePlaces = async (query) => {
     const request = {

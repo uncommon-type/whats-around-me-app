@@ -1,14 +1,22 @@
-import React, { createContext, useContext, useState } from 'react';
-import { FetchContext } from './FetchContextProvider';
+import React, { createContext, useState } from 'react';
 
-export const ShareLocationContext = createContext();
+export const LocationContext = createContext();
 
-const ShareLocationContextProvider = ({ children }) => {
+const parisCoords = {
+  lat: 48.8566,
+  lng: 2.3522,
+};
+
+const LocationContextProvider = ({ children }) => {
+  const [centerCoords, setCenterCoords] = useState({
+    ...parisCoords,
+    panning: false,
+  });
+
   const [isWatchingLocation, setIsWatchingLocation] = useState(false);
   const [watcherId, setWatcherId] = useState(null);
   const [userPosition, setUserPosition] = useState({ lat: null, lng: null });
   const [geolocationError, setGeolocationError] = useState(null);
-  const { setCenterCoords } = useContext(FetchContext);
 
   const onSuccess = ({ coords }) => {
     const { latitude, longitude } = coords;
@@ -42,8 +50,7 @@ const ShareLocationContextProvider = ({ children }) => {
 
     setIsWatchingLocation(false);
     setCenterCoords({
-      lat: 48.8566,
-      lng: 2.3522,
+      ...parisCoords,
       panning: true,
     });
   };
@@ -58,13 +65,15 @@ const ShareLocationContextProvider = ({ children }) => {
     handleSharing,
     handleStopSharing,
     geolocationError,
+    centerCoords,
+    setCenterCoords,
   };
 
   return (
-    <ShareLocationContext.Provider value={context}>
+    <LocationContext.Provider value={context}>
       {children}
-    </ShareLocationContext.Provider>
+    </LocationContext.Provider>
   );
 };
 
-export default ShareLocationContextProvider;
+export default LocationContextProvider;
