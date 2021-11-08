@@ -12,7 +12,7 @@ const useFetch = ({ lat, lng, panning }, timeDelay) => {
   useEffect(() => {
     if (!lat && !lng) return;
 
-    const getWikiData = async (lat, lng) => {
+    const getData = async (lat, lng) => {
       if (status === 'loading') {
         controller.abort();
       }
@@ -42,17 +42,17 @@ const useFetch = ({ lat, lng, panning }, timeDelay) => {
     };
 
     if (panning) {
-      getWikiData(lat, lng);
+      getData(lat, lng);
       return;
     }
     const now = Date.now();
     if (now >= lastExecuted.current + timeDelay) {
       lastExecuted.current = now;
-      getWikiData(lat, lng);
+      getData(lat, lng);
     } else {
       const timerId = setTimeout(() => {
         lastExecuted.current = now;
-        getWikiData(lat, lng);
+        getData(lat, lng);
       }, timeDelay - (now - lastExecuted.current));
 
       return () => clearTimeout(timerId);
