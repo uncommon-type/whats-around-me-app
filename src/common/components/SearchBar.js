@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 
 import { SearchIcon } from '@heroicons/react/solid';
 
-import { FetchContext } from '../../contexts/FetchContextProvider';
 import { GoogleContext } from '../../contexts/GoogleContextProvider';
 import { LocationContext } from '../../contexts/LocationContextProvider';
 
@@ -12,14 +11,13 @@ import NotFound from './NotFound';
 const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [isError, setIsError] = useState(false);
-  const { setCenterCoords } = useContext(FetchContext);
   const { mapInstance, mapApi, ready } = useContext(GoogleContext);
-
   const {
     isWatchingLocation,
     handleSharing,
     handleStopSharing,
     geolocationError,
+    setCenterCoords,
   } = useContext(LocationContext);
 
   const callGooglePlaces = async (query) => {
