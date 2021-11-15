@@ -5,20 +5,13 @@ import { SearchIcon } from '@heroicons/react/solid';
 import { GoogleContext } from '../../contexts/GoogleContextProvider';
 import { LocationContext } from '../../contexts/LocationContextProvider';
 
-import GeoLocationButton from './GeoLocationButton';
 import NotFound from './NotFound';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [isError, setIsError] = useState(false);
   const { mapInstance, mapApi, ready } = useContext(GoogleContext);
-  const {
-    isWatchingLocation,
-    handleSharing,
-    handleStopSharing,
-    geolocationError,
-    setCenterCoords,
-  } = useContext(LocationContext);
+  const { setCenterCoords } = useContext(LocationContext);
 
   const callGooglePlaces = async (query) => {
     const request = {
@@ -62,13 +55,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <GeoLocationButton
-        handleSharing={handleSharing}
-        isWatchingLocation={isWatchingLocation}
-        handleStopSharing={handleStopSharing}
-        geolocationError={geolocationError}
-      />
+    <>
       <form className="search-controls" onSubmit={handleSubmit}>
         <label htmlFor="search" className="visually-hidden">
           Search locations
@@ -90,7 +77,7 @@ const SearchBar = () => {
         </div>
       </form>
       {isError ? <NotFound /> : null}
-    </div>
+    </>
   );
 };
 
