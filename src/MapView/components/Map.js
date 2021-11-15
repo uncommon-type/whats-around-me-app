@@ -15,11 +15,11 @@ import mapStyle from './mapStyle.json';
 
 const Map = () => {
   const [locationDetails, setLocationDetails] = useState(null);
+  const [tilesLoaded, setTilesLoaded] = useState(false);
   const { data } = useContext(FetchContext);
   const { userPosition, centerCoords, setCenterCoords } =
     useContext(LocationContext);
   const { ready } = useContext(GoogleContext);
-  const [tilesLoaded, setTilesLoaded] = useState(false);
 
   const handlePinClick = (location) => {
     setLocationDetails(location);
