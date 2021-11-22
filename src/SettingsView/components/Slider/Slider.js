@@ -1,0 +1,35 @@
+import ReactSlider from 'react-slider';
+
+import * as styles from './slider.module.css';
+
+const Slider = ({ apiTimeDelay, handleChange }) => (
+  <aside className={styles['slider-group']}>
+    <div className={styles['slider-group__inner']}>
+      <div className={styles['slider-group__inner__wrapper']}>
+        <h4>Adjust updates frequency</h4>
+        <div className={styles['slider-container']}>
+          <ReactSlider
+            className={styles['slider']}
+            thumbClassName={styles['thumb']}
+            trackClassName={styles['track']}
+            min={0}
+            max={30}
+            step={5}
+            value={apiTimeDelay}
+            onChange={handleChange}
+            renderThumb={(props, state) => (
+              <div {...props}>{state.valueNow}</div>
+            )}
+          />
+        </div>
+        <ul className={styles['slider-legend']}>
+          <li>Driving: 0 seconds</li>
+          <li>Cycling: 15 seconds</li>
+          <li>Walking: 30 seconds</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+);
+
+export default Slider;

@@ -1,15 +1,17 @@
 import RadioItem from './RadioItem.js';
 
+import * as styles from './instructions.module.css';
+
 const viewOptions = [
   { name: 'Map', id: '01' },
   { name: 'List', id: '02' },
 ];
 
 const Instructions = ({ onViewChange, view }) => (
-  <article className="instructions-group">
-    <div className="instructions-group__inner">
-      <div className="instruction">
-        <header className="instruction__header">
+  <article className={styles['instructions-group']}>
+    <div className={styles['instructions-group__inner']}>
+      <div className={styles['instruction']}>
+        <header className={styles['instruction__header']}>
           <div>
             <span>1</span>
             <h3>
@@ -24,8 +26,8 @@ const Instructions = ({ onViewChange, view }) => (
         <p>Save it by adjusting how often the app refreshes with new data.</p>
         <p>Make adjustments based on how you commute.</p>
       </div>
-      <div className="instruction">
-        <header className="instruction__header">
+      <div className={styles['instruction']}>
+        <header className={styles['instruction__header']}>
           <div>
             <span>2</span>
             <h3>Managing your app's views</h3>
@@ -34,7 +36,7 @@ const Instructions = ({ onViewChange, view }) => (
 
         <p>Select the view you want to set as your default.</p>
         <form>
-          <ul className="default-view-options">
+          <ul className={styles['default-view-options']}>
             {viewOptions.map((item) => {
               const { id, name } = item;
               return (

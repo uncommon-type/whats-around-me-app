@@ -4,12 +4,13 @@ import { Switch, Route } from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
 
 import { AppProviders } from './contexts';
-import Logo from './common/components/Logo';
-import Map from './MapView/components/Map';
+
+import Map from './MapView/components/Map/Map';
 import CardList from './ListView/components/CardList';
-import Settings from './SettingsView/components/Settings';
-import Footer from './common/components/Footer';
-import FooterWithSearchBar from './common/components/FooterWithSearchBar';
+import Settings from './SettingsView/components/Settings/Settings';
+import Logo from './common/components/Logo/Logo';
+import Footer from './common/components/Footer/Footer';
+import FooterWithSearchBar from './common/components/Footer/FooterWithSearchBar';
 
 import './App.css';
 

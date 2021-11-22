@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 
-import { LocationContext } from '../../contexts/LocationContextProvider';
+import { LocationContext } from '../../../contexts/LocationContextProvider';
 
 import Footer from './Footer';
-import SearchBar from './SearchBar';
-import GeoLocationButton from './GeoLocationButton';
+import SearchBar from '../SearchBar/SearchBar';
+import GeoLocationButton from '../GeoLocationButton/GeoLocationButton';
 
 const FooterWithSearchBar = () => {
   const {

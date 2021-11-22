@@ -1,0 +1,16 @@
+.map {
+  overflow-y: auto;
+  z-index: 0;
+  width: 100%;
+  max-width: 72rem;
+  height: 100%;
+  margin: 0 auto;
+  border: 1.5px solid #37353f;
+  border-radius: 0 0 125px 3px/3px 85px 5px 55px;
+  background: rgba(224, 200, 213, 0.9);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
+}
+
+.gm-fullscreen-control {
+  display: none;
+}

@@ -1,0 +1,19 @@
+.logo {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.3rem;
+  z-index: 1;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border: 1px solid #002f3c;
+  background-color: #f1e3ec;
+  color: rgba(25, 26, 27, 1);
+  box-shadow: 1px 1px 0 #002f3c;
+  font-family: Space Mono, monospace;
+  font-size: 0.775rem;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(7deg);
+}

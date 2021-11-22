@@ -1,4 +1,4 @@
-import React from 'react';
+import * as styles from './geolocationbutton.module.css';
 
 const GeoLocationButton = ({
   handleSharing,
@@ -10,13 +10,13 @@ const GeoLocationButton = ({
     <button
       onClick={handleSharing}
       disabled={isWatchingLocation}
-      className="share-btn"
+      className={styles['share-btn']}
     >
       Find My Location
     </button>
 
     {geolocationError === null && isWatchingLocation ? (
-      <button onClick={handleStopSharing} className="stop-btn">
+      <button onClick={handleStopSharing} className={styles['stop-btn']}>
         Stop Sharing Location
       </button>
     ) : null}

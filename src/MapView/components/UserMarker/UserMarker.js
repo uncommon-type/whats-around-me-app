@@ -1,9 +1,9 @@
-import React from 'react';
-
 import { LocationMarkerIcon } from '@heroicons/react/solid';
 
+import * as styles from './usermarker.module.css';
+
 const UserMarker = () => (
-  <div className="user-icon">
+  <div className={styles['user-icon']}>
     <LocationMarkerIcon className="user-location-icon" />
   </div>
 );

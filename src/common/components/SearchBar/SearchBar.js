@@ -1,11 +1,13 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 
 import { SearchIcon } from '@heroicons/react/solid';
 
-import { GoogleContext } from '../../contexts/GoogleContextProvider';
-import { LocationContext } from '../../contexts/LocationContextProvider';
+import { GoogleContext } from '../../../contexts/GoogleContextProvider';
+import { LocationContext } from '../../../contexts/LocationContextProvider';
 
-import NotFound from './NotFound';
+import NotFound from '../NotFound/NotFound';
+
+import * as styles from './searchbar.module.css';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -56,11 +58,11 @@ const SearchBar = () => {
 
   return (
     <>
-      <form className="search-controls" onSubmit={handleSubmit}>
-        <label htmlFor="search" className="visually-hidden">
+      <form className={styles['search-controls']} onSubmit={handleSubmit}>
+        <label htmlFor="search" className={styles['visually-hidden']}>
           Search locations
         </label>
-        <div className="search-controls__inner">
+        <div className={styles['search-controls__inner']}>
           <input
             value={query}
             onChange={handleChange}
@@ -71,8 +73,8 @@ const SearchBar = () => {
             aria-label="Search for address or location"
           />
           <button type="submit" aria-label="Submit search">
-            <span className="visually-hidden">Search</span>
-            <SearchIcon className="icon-search" focusable="false" />
+            <span className={styles['visually-hidden']}>Search</span>
+            <SearchIcon className={styles['icon-search']} focusable="false" />
           </button>
         </div>
       </form>

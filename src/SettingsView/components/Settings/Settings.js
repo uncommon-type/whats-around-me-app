@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
-import Slider from './Slider';
+import { FetchContext } from '../../../contexts/FetchContextProvider';
 
-import { FetchContext } from '../../contexts/FetchContextProvider';
-import Instructions from './Instructions';
+import Slider from '../Slider/Slider';
+import Instructions from '../Instructions/Instructions';
 
 const Settings = ({ onViewChange, view }) => {
   const { apiTimeDelay, setApiTimeDelay } = useContext(FetchContext);

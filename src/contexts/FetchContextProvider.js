@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
-import { LocationContext } from './LocationContextProvider';
 
+import { LocationContext } from './LocationContextProvider';
 import useFetch from '../hooks/useFetch';
-import ErrorMessage from '../common/components/ErrorMessage';
+
+import ErrorMessage from '../common/components/ErrorMessage/ErrorMessage';
 
 export const FetchContext = createContext();
 

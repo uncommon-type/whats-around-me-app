@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Card = ({ location }) => {
   const { pageid: id, title } = location;
 

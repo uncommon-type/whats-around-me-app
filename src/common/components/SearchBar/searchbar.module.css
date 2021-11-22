@@ -1,0 +1,113 @@
+.search-controls {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-controls__inner {
+  position: relative;
+  min-width: 12rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+}
+
+.search-controls input {
+  display: block;
+  width: 100%;
+  padding: 0.38rem 1rem;
+  border: 1.5px solid #37353f;
+  background-color: rgba(224, 200, 213, 0.9);
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      #965784 2px,
+      #965784 4px,
+      transparent 4px,
+      transparent 9px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      #965784 2px,
+      #965784 4px,
+      transparent 4px,
+      transparent 9px
+    );
+  background-size: 10px 10px, 10px 10px;
+  background-repeat: repeat-x;
+  color: #18191f;
+  box-shadow: 3px 3px 0 0 #37353f;
+  font-family: 'Chelsea Market', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+input[type='text'] {
+  background-color: rgba(224, 200, 213, 0.9);
+}
+
+.search-controls input:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 2pt #f586ae;
+}
+
+.search-controls input::placeholder,
+.search-controls input:-ms-input-placeholder {
+  padding: 0.2rem 0rem;
+  color: rgba(55, 53, 63, 0.8);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(55, 53, 63, 0.8);
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: rgba(55, 53, 63, 0.8);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #222;
+  opacity: 1;
+}
+
+.search-controls button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #002f3c;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.icon-search {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.1em;
+  fill: currentColor;
+}

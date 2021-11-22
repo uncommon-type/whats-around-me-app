@@ -1,17 +1,19 @@
-import React, { useState, useContext, useCallback } from 'react';
+import { useState, useContext, useCallback } from 'react';
 
 import GoogleMapReact from 'google-map-react';
 import { Dialog } from '@reach/dialog';
 import '@reach/dialog/styles.css';
 
-import { LocationContext } from '../../contexts/LocationContextProvider';
-import { FetchContext } from '../../contexts/FetchContextProvider';
-import { GoogleContext } from '../../contexts/GoogleContextProvider';
+import { LocationContext } from '../../../contexts/LocationContextProvider';
+import { FetchContext } from '../../../contexts/FetchContextProvider';
+import { GoogleContext } from '../../../contexts/GoogleContextProvider';
 
-import Pin from './Pin';
-import UserMarker from './UserMarker';
-import DialogBody from './DialogBody';
-import mapStyle from './mapStyle.json';
+import Pin from '../Pin/Pin';
+import UserMarker from '../UserMarker/UserMarker';
+import DialogBody from '../Dialog/DialogBody';
+import mapStyle from '../Map/mapStyle.json';
+
+import * as styles from './map.module.css';
 
 const Map = () => {
   const [locationDetails, setLocationDetails] = useState(null);
@@ -41,7 +43,7 @@ const Map = () => {
   );
 
   return (
-    <div className="map">
+    <div className={styles['map']}>
       {ready ? (
         <GoogleMapReact
           bootstrapURLKeys={{
@@ -84,7 +86,7 @@ const Map = () => {
       ) : null}
       {locationDetails ? (
         <Dialog
-          className="dialog"
+          // className={styles['dialog']}
           onDismiss={handleCloseDialog}
           aria-label="Location details"
         >

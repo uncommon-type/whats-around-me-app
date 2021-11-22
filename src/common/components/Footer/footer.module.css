@@ -1,0 +1,25 @@
+.footer {
+  --space: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.footer > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.footer > * > * {
+  margin: calc(var(--space) / 2);
+}
+
+.footer > :first-child {
+  align-items: center;
+}
+
+.footer > :last-child {
+  margin-left: auto;
+  padding: 1rem;
+}

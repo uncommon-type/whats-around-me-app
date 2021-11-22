@@ -1,18 +1,18 @@
-import React from 'react';
-
 import { XCircleIcon } from '@heroicons/react/solid';
+
+import * as styles from './dialogbody.module.css';
 
 const DialogBody = ({ locationDetails, onClick }) => (
   <>
     <button
-      className="dialog__button"
+      className={styles['dialog__button']}
       aria-label="close dialog"
       onClick={onClick}
     >
       <XCircleIcon />
     </button>
 
-    <div className="dialog__image">
+    <div className={styles['dialog__image']}>
       <img
         src={
           locationDetails?.thumbnail?.source ||
@@ -21,11 +21,11 @@ const DialogBody = ({ locationDetails, onClick }) => (
         alt={locationDetails?.thumbnail?.source ? locationDetails.title : ''}
       />
     </div>
-    <div className="dialog__body">
+    <div className={styles['dialog__body']}>
       <h2>{locationDetails.title}</h2>
       <p>{locationDetails.description}</p>
       <a
-        className="dialog__body__link"
+        className={styles['dialog__body__link']}
         href={`https://en.wikipedia.org/?curid=${locationDetails.pageid}`}
         aria-label={`Read more about ${locationDetails.title}`}
       >

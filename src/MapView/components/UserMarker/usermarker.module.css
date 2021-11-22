@@ -1,0 +1,8 @@
+.user-icon {
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 50%;
+  color: #454ade;
+  background-color: rgba(248, 59, 248, 0.5);
+  cursor: pointer;
+}

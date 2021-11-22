@@ -1,10 +1,10 @@
-import React from 'react';
-
 import { NavLink } from 'react-router-dom';
+
+import * as styles from './nav.module.css';
 
 const Nav = () => (
   <nav>
-    <ul className="nav">
+    <ul className={styles['nav']}>
       <li>
         <NavLink exact to="/">
           Map

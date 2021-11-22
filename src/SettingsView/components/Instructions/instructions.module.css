@@ -1,0 +1,122 @@
+.instructions-group {
+  padding: 1rem;
+}
+
+@media (min-width: 64em) {
+  .instructions-group {
+    min-width: 42rem;
+  }
+}
+
+.instructions-group__inner > * + * {
+  margin-top: 7.4rem;
+}
+
+.instructions-group__inner h3 {
+  max-width: 31ch;
+  font-size: 1.25rem;
+}
+
+.instructions-group__inner h3 span {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid #282828;
+  background-color: #fffa5d;
+  color: #282828;
+  font-family: 'PT Mono', Menlo, Consolas, Monaco, 'Courier New', monospace;
+  font-weight: 600;
+  line-height: 2.25rem;
+  text-align: center;
+  padding: 0.38rem 1rem;
+  background-color: rgba(252, 139, 147, 0.3);
+  background-image: radial-gradient(circle, #fc8b93 20%, transparent 20%),
+    radial-gradient(circle, #fc8b93 20%, transparent 20%);
+  background-size: 10px 10px, 10px 10px;
+  box-shadow: 3px 3px 0 0 #37353f;
+  background-repeat: repeat-x;
+  background-color: rgba(224, 200, 213, 0.9);
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      #396afc 2px,
+      #396afc 4px,
+      transparent 4px,
+      transparent 9px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      #396afc 2px,
+      #396afc 4px,
+      transparent 4px,
+      transparent 9px
+    );
+  font-family: 'Chelsea Market', sans-serif;
+  font-size: 0.8rem;
+}
+
+.instruction p + p {
+  margin-top: 1rem;
+}
+
+.instruction > * + * {
+  margin-top: 0.8rem;
+}
+
+.instruction__header {
+  --space: 1rem;
+}
+
+.instruction__header > * {
+  display: flex;
+  justify-content: flex-start;
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.instruction__header > * > * {
+  margin: calc(var(--space) / 2);
+}
+
+.instruction__header span {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid #282828;
+  color: #282828;
+  font-weight: 600;
+  line-height: 2.25rem;
+  text-align: center;
+  padding: 0.38rem 1rem;
+  background-size: 10px 10px, 10px 10px;
+  box-shadow: 3px 3px 0 0 #37353f;
+  background-repeat: repeat-x;
+  background-color: rgba(224, 200, 213, 0.9);
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      #396afc 2px,
+      #396afc 4px,
+      transparent 4px,
+      transparent 9px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      #396afc 2px,
+      #396afc 4px,
+      transparent 4px,
+      transparent 9px
+    );
+  font-family: 'Chelsea Market', sans-serif;
+  font-size: 0.8rem;
+}
+
+.default-view-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+}
