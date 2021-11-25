@@ -1,8 +1,8 @@
 import { useState, useContext, useCallback } from 'react';
 
 import GoogleMapReact from 'google-map-react';
-import { Dialog } from '@reach/dialog';
-import '@reach/dialog/styles.css';
+// import { Dialog as ReachDialog } from '@reach/dialog';
+// import '@reach/dialog/styles.css';
 
 import { LocationContext } from '../../../contexts/LocationContextProvider';
 import { FetchContext } from '../../../contexts/FetchContextProvider';
@@ -10,7 +10,7 @@ import { GoogleContext } from '../../../contexts/GoogleContextProvider';
 
 import Pin from '../Pin/Pin';
 import UserMarker from '../UserMarker/UserMarker';
-import DialogBody from '../Dialog/DialogBody';
+import Dialog from '../Dialog/Dialog';
 import mapStyle from '../Map/mapStyle.json';
 
 import * as styles from './map.module.css';
@@ -86,18 +86,13 @@ const Map = () => {
       ) : null}
       {locationDetails ? (
         <Dialog
-          // className={styles['dialog']}
           onDismiss={handleCloseDialog}
-          aria-label="Location details"
-        >
-          <DialogBody
-            onClick={handleCloseDialog}
-            locationDetails={locationDetails}
-          />
-        </Dialog>
+          ariaLabel="Location details"
+          onClick={handleCloseDialog}
+          locationDetails={locationDetails}
+        />
       ) : null}
     </div>
   );
 };
-
 export default Map;

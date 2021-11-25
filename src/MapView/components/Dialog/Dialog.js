@@ -1,9 +1,12 @@
 import { XCircleIcon } from '@heroicons/react/solid';
 
-import * as styles from './dialogbody.module.css';
+import { Dialog as ReachDialog } from '@reach/dialog';
+import '@reach/dialog/styles.css';
 
-const DialogBody = ({ locationDetails, onClick }) => (
-  <>
+import * as styles from './dialog.module.css';
+
+const Dialog = ({ locationDetails, onClick, onDismiss, ariaLabel }) => (
+  <ReachDialog onDismiss={onDismiss} aria-label={ariaLabel}>
     <button
       className={styles['dialog__button']}
       aria-label="close dialog"
@@ -32,7 +35,7 @@ const DialogBody = ({ locationDetails, onClick }) => (
         Learn More
       </a>
     </div>
-  </>
+  </ReachDialog>
 );
 
-export default DialogBody;
+export default Dialog;
