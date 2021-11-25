@@ -2,7 +2,7 @@ import ReactSlider from 'react-slider';
 
 import * as styles from './slider.module.css';
 
-const Slider = ({ apiTimeDelay, handleChange }) => (
+const Slider = ({ apiTimeDelay, onChange }) => (
   <aside className={styles['slider-group']}>
     <div className={styles['slider-group__inner']}>
       <div className={styles['slider-group__inner__wrapper']}>
@@ -16,7 +16,7 @@ const Slider = ({ apiTimeDelay, handleChange }) => (
             max={30}
             step={5}
             value={apiTimeDelay}
-            onChange={handleChange}
+            onChange={onChange}
             renderThumb={(props, state) => (
               <div {...props}>{state.valueNow}</div>
             )}

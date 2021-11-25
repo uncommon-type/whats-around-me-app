@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import useLocalStorage from './hooks/useLocalStorage';
 
@@ -21,12 +21,6 @@ const Root = () => {
     setView(view);
   };
 
-  useEffect(() => {
-    if (view === 'List' && window.location.pathname === '/') {
-      window.history.replaceState({}, '', '/list');
-    }
-  }, [view]);
-
   return (
     <AppProviders>
       <div className="app">
@@ -35,6 +29,16 @@ const Root = () => {
             <Logo />
             <Switch>
               <Route path="/" exact>
+                {view === 'Map' ? (
+                  <>
+                    <Map />
+                    <FooterWithSearchBar />
+                  </>
+                ) : (
+                  <Redirect to="/list" />
+                )}
+              </Route>
+              <Route path="/map">
                 <Map />
                 <FooterWithSearchBar />
               </Route>

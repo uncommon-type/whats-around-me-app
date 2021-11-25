@@ -15,7 +15,7 @@ const Settings = ({ onViewChange, view }) => {
   return (
     <div className="content">
       <div className="content__inner splitter">
-        <Slider apiTimeDelay={apiTimeDelay} handleChange={handleChange} />
+        <Slider value={apiTimeDelay} onChange={handleChange} />
         <Instructions onViewChange={onViewChange} view={view} />
       </div>
     </div>

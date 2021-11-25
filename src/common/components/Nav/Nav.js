@@ -6,9 +6,7 @@ const Nav = () => (
   <nav>
     <ul className={styles['nav']}>
       <li>
-        <NavLink exact to="/">
-          Map
-        </NavLink>
+        <NavLink to="/map">Map</NavLink>
       </li>
       <li>
         <NavLink to="/list">List</NavLink>
