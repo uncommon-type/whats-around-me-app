@@ -12,12 +12,12 @@
   margin-top: 7.4rem;
 }
 
-.instructions-group__inner h3 {
+.instructions-group__inner h2 {
   max-width: 31ch;
   font-size: 1.25rem;
 }
 
-.instructions-group__inner h3 span {
+.instructions-group__inner h2 span {
   width: 2.5rem;
   height: 2.5rem;
   border: 2px solid #282828;

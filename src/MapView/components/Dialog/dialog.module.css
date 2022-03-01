@@ -22,7 +22,7 @@
   min-width: 100vw;
   margin: 0 auto;
   background: white;
-  outline: none;
+  outline: dotted 2px blue;
 }
 
 @media screen and (min-width: 43rem) {

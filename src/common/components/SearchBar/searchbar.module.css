@@ -27,27 +27,6 @@
   width: 100%;
   padding: 0.38rem 1rem;
   border: 1.5px solid #37353f;
-  background-color: rgba(224, 200, 213, 0.9);
-  background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 2px,
-      #965784 2px,
-      #965784 4px,
-      transparent 4px,
-      transparent 9px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 2px,
-      #965784 2px,
-      #965784 4px,
-      transparent 4px,
-      transparent 9px
-    );
-  background-size: 10px 10px, 10px 10px;
-  background-repeat: repeat-x;
   color: #18191f;
   box-shadow: 3px 3px 0 0 #37353f;
   font-family: 'Chelsea Market', sans-serif;
@@ -58,7 +37,7 @@
 }
 
 input[type='text'] {
-  background-color: rgba(224, 200, 213, 0.9);
+  background-color: rgba(224, 200, 213, 9);
 }
 
 .search-controls input:focus {
@@ -110,4 +89,45 @@ input[type='text'] {
   height: 1em;
   margin-top: 0.1em;
   fill: currentColor;
+}
+
+*:focus {
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px,
+    rgb(0, 173, 159) 0px 0px 0px 5px;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+
+*:focus-visible {
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px,
+    rgb(0, 173, 159) 0px 0px 0px 4px;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+.search-controls input {
+  border: 1px solid #262b2f;
+
+  font-size: 1.25m;
+  max-width: 40ch;
+  width: 100%;
+}
+
+.search-controls input:focus:not(:focus-visible) {
+  border-color: #00ad9f;
+  box-shadow: 0 0 0 2px #00ad9f;
+}
+
+.search-controls input:focus-visible {
+  border-color: #00ad9f;
+  box-shadow: 0 0 0 2px #00ad9f;
+}
+
+.search-controls input::placeholder {
+  color: hsla(0, 0%, 32%, 1);
 }

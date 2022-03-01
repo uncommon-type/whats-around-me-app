@@ -6,7 +6,7 @@ const Slider = ({ apiTimeDelay, onChange }) => (
   <aside className={styles['slider-group']}>
     <div className={styles['slider-group__inner']}>
       <div className={styles['slider-group__inner__wrapper']}>
-        <h4>Adjust updates frequency</h4>
+        <h1>Adjust updates frequency</h1>
         <div className={styles['slider-container']}>
           <ReactSlider
             className={styles['slider']}

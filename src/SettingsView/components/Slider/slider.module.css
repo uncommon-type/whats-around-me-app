@@ -22,12 +22,12 @@
   text-align: center;
 }
 
-.slider-group__inner__wrapper * + h4 {
+.slider-group__inner__wrapper * + h1 {
   --s2: 1rem;
   margin-top: var(--s2);
 }
 
-.slider-group__inner__wrapper h4 {
+.slider-group__inner__wrapper h1 {
   --s2: 1rem;
   font-size: var(--s2);
   font-family: Georgia, serif;

@@ -14,9 +14,9 @@ const Instructions = ({ onViewChange, view }) => (
         <header className={styles['instruction__header']}>
           <div>
             <span>1</span>
-            <h3>
+            <h2>
               Making your phone battery last longer when location sharing is on
-            </h3>
+            </h2>
           </div>
         </header>
         <p>
@@ -30,7 +30,7 @@ const Instructions = ({ onViewChange, view }) => (
         <header className={styles['instruction__header']}>
           <div>
             <span>2</span>
-            <h3>Managing your app's views</h3>
+            <h2>Managing your app's views</h2>
           </div>
         </header>
 
