@@ -1,8 +1,6 @@
 import { useState, useContext, useCallback } from 'react';
 
 import GoogleMapReact from 'google-map-react';
-// import { Dialog as ReachDialog } from '@reach/dialog';
-// import '@reach/dialog/styles.css';
 
 import { LocationContext } from '../../../contexts/LocationContextProvider';
 import { FetchContext } from '../../../contexts/FetchContextProvider';
