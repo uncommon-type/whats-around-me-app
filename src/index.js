@@ -4,7 +4,7 @@ import Root from './Root';
 import reportWebVitals from './reportWebVitals';
 
 if (process.env.NODE_ENV !== 'production') {
-  var axe = require('react-axe');
+  const axe = require('@axe-core/react');
   axe(React, ReactDOM, 1000);
 }
 

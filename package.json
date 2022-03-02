@@ -27,7 +27,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
     "prettier": "^2.2.1",
-    "react-axe": "^3.5.4"
+    "@axe-core/react": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
