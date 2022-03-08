@@ -36,7 +36,10 @@ a {
 }
 
 a:focus {
-  outline: dotted 2px blue;
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px,
+    rgb(0, 173, 159) 0px 0px 0px 5px;
+  outline: 3px solid transparent;
+  outline-offset: 1px;
 }
 
 img,
@@ -79,7 +82,7 @@ body,
 
 body {
   margin: 0;
-  color: #1c2334;
+  color: #09162c;
   font-family: Barlow Condensed, Helvetica, sans-serif;
   line-height: 1.5;
 }
@@ -130,7 +133,7 @@ main {
   overflow-y: auto;
   border: 1.5px solid #37353f;
   border-radius: 0 0 125px 3px/3px 85px 5px 55px;
-  background: rgba(224, 200, 213, 0.9);
+  background: rgb(255, 237, 247);
   box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
 }
 

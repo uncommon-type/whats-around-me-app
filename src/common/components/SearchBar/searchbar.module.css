@@ -26,7 +26,6 @@
   display: block;
   width: 100%;
   padding: 0.38rem 1rem;
-  border: 1.5px solid #37353f;
   color: #18191f;
   box-shadow: 3px 3px 0 0 #37353f;
   font-family: 'Chelsea Market', sans-serif;
@@ -37,18 +36,14 @@
 }
 
 input[type='text'] {
-  background-color: rgba(224, 200, 213, 9);
-}
-
-.search-controls input:focus {
-  outline: 2px solid transparent;
-  box-shadow: 0 0 0 2pt #f586ae;
+  background-color: rgb(255, 237, 247);
+  color: #09162c;
 }
 
 .search-controls input::placeholder,
 .search-controls input:-ms-input-placeholder {
   padding: 0.2rem 0rem;
-  color: rgba(55, 53, 63, 0.8);
+  color: hsla(0, 0%, 32%, 1);
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1.5;
@@ -56,17 +51,17 @@ input[type='text'] {
 }
 
 ::-webkit-input-placeholder {
-  color: rgba(55, 53, 63, 0.8);
+  color: hsla(0, 0%, 32%, 1);
   opacity: 1;
 }
 
 ::-moz-placeholder {
-  color: rgba(55, 53, 63, 0.8);
+  color: hsla(0, 0%, 32%, 1);
   opacity: 1;
 }
 
 :-ms-input-placeholder {
-  color: #222;
+  color: hsla(0, 0%, 32%, 1);
   opacity: 1;
 }
 
@@ -77,7 +72,6 @@ input[type='text'] {
   height: 100%;
   border: none;
   background: transparent;
-  color: #002f3c;
   font-weight: 700;
   cursor: pointer;
 }
@@ -112,7 +106,6 @@ input[type='text'] {
 }
 .search-controls input {
   border: 1px solid #262b2f;
-
   font-size: 1.25m;
   max-width: 40ch;
   width: 100%;

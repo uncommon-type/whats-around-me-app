@@ -1,5 +1,5 @@
 button:focus {
-  outline-color: rgba(255, 189, 18, 0.8);
+  outline-color: #00ad9f;
 }
 
 button:hover:active {
