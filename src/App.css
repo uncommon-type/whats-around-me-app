@@ -206,3 +206,9 @@ main {
     transparent 85%
   );
 }
+
+.gm-style .gm-style-cc a,
+.gm-style .gm-style-cc button,
+.gm-style .gm-style-cc span {
+  display: none !important;
+}
