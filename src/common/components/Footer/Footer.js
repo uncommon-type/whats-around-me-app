@@ -1,20 +1,37 @@
+import { useContext } from "react";
+import { useLocation } from "react-router-dom";
+
+import { LocationContext } from "../../../contexts/LocationContextProvider";
+
 import Nav from "../Nav/Nav";
+import SearchBar from "../SearchBar/SearchBar";
+import GeoLocationButton from "../GeoLocationButton/GeoLocationButton";
 
-import * as styles from "./footer.module.css";
+import styles from "./footer.module.css";
 
-const Footer = ({ children }) => (
-  <footer className={`${styles["footer"]} gap-top`}>
-    {children}
-    <Nav />
-  </footer>
-);
+const Footer = () => {
+  const { isWatchingLocation, handleSharing, handleStopSharing, geolocationError } = useContext(LocationContext);
+  const { pathname } = useLocation();
+  const showGeoLocationButtons = pathname !== "/settings";
+
+  return (
+    <footer className={`${styles["footer"]} gap-top`}>
+      <div>
+        {showGeoLocationButtons && (
+          <>
+            <GeoLocationButton
+              handleSharing={handleSharing}
+              isWatchingLocation={isWatchingLocation}
+              handleStopSharing={handleStopSharing}
+              geolocationError={geolocationError}
+            />
+            <SearchBar />
+          </>
+        )}
+      </div>
+      <Nav />
+    </footer>
+  );
+};
 
 export default Footer;
-
-// function Root() {
-//   return (
-//     <div className={`${styles.footer} styles.gap-top}`}>
-//       <h1>Hello world!</h1>
-//     </div>
-//   );
-// }

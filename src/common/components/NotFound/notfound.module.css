@@ -1,0 +1,11 @@
+.search-error h2 {
+  color: #002f3c;
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.search-error span {
+  background-color: rgba(233, 228, 240, 0.6);
+  background: #fc8b93;
+}

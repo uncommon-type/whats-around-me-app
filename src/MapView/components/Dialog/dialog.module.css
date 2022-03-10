@@ -1,0 +1,93 @@
+[data-reach-dialog-overlay] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+[role="dialog"] {
+  padding: 2.5rem;
+  border: 2px solid;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+[data-reach-dialog-content] {
+  position: relative;
+  z-index: 1;
+  min-width: 100vw;
+  margin: 0 auto;
+  background: white;
+  outline: dotted 2px blue;
+}
+
+@media screen and (min-width: 43rem) {
+  [data-reach-dialog-content] {
+    min-width: 45vw;
+    margin: 10vh auto;
+  }
+}
+
+.dialog {
+  border: 1.5px solid #37353f;
+  border-radius: 0 0 125px 3px/3px 85px 5px 55px;
+}
+
+.dialog__button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+}
+
+.dialog__button svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+}
+
+.dialog__image {
+  --height: 9;
+  --width: 16;
+  padding-bottom: calc(var(--height) / var(--width) * 100%);
+  position: relative;
+}
+
+.dialog__image > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.dialog__body__link {
+  color: #1c2334;
+  text-decoration: underline;
+}
+
+.dialog__body__link:hover {
+  font-weight: 700;
+}
+
+.dialog__body h1 {
+  font-size: 1.5rem;
+}

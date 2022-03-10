@@ -1,0 +1,124 @@
+.search-controls {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-controls__inner {
+  position: relative;
+  min-width: 12rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+}
+
+.search-controls input {
+  display: block;
+  width: 100%;
+  padding: 0.38rem 1rem;
+  color: #18191f;
+  box-shadow: 3px 3px 0 0 #37353f;
+  font-family: "Chelsea Market", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  background-color: rgb(255, 237, 247);
+  color: #09162c;
+}
+
+.search-controls input::placeholder,
+.search-controls input:-ms-input-placeholder {
+  padding: 0.2rem 0rem;
+  color: hsla(0, 0%, 32%, 1);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+}
+
+::-webkit-input-placeholder {
+  color: hsla(0, 0%, 32%, 1);
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: hsla(0, 0%, 32%, 1);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: hsla(0, 0%, 32%, 1);
+  opacity: 1;
+}
+
+.search-controls button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.icon-search {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.1em;
+  fill: currentColor;
+}
+
+*:focus {
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(0, 173, 159) 0px 0px 0px 5px;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+
+*:focus-visible {
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(0, 173, 159) 0px 0px 0px 4px;
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+}
+.search-controls input {
+  border: 1px solid #262b2f;
+  font-size: 1.25m;
+  max-width: 40ch;
+  width: 100%;
+}
+
+.search-controls input:focus:not(:focus-visible) {
+  border-color: #00ad9f;
+  box-shadow: 0 0 0 2px #00ad9f;
+}
+
+.search-controls input:focus-visible {
+  border-color: #00ad9f;
+  box-shadow: 0 0 0 2px #00ad9f;
+}
+
+.search-controls input::placeholder {
+  color: hsla(0, 0%, 32%, 1);
+}

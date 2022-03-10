@@ -7,13 +7,14 @@
   },
   "settings": {
     "react": {
-      "version": "^17.0.1"
+      "version": "^17.0.2"
     }
   },
   "extends": [
       "eslint:recommended",
+      "plugin:jsx-a11y/recommended",
       "plugin:react/recommended",
-      "plugin:jsx-a11y/recommended"
+      "plugin:react-hooks/recommended"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
@@ -27,11 +28,6 @@
       "sourceType": "module"
   },
   "plugins": [
-      "react","react-hooks", "jsx-a11y"
-  ],
-  "rules": {
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "react/no-unescaped-entities":"off" 
-  }
+      "react", "react-hooks", "jsx-a11y"
+  ]
 }
