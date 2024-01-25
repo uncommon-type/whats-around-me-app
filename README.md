@@ -17,7 +17,7 @@ App to explore local surroundings
 ## Built With 
 
 -  React
--  HTML/CSS
+-  CSS
 -  Google Maps API
 -  Geolocation API
 -  Wikipedia Nearby API
